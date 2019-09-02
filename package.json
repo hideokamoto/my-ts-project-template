@@ -3,15 +3,21 @@
   "version": "0.0.0",
   "description": "",
   "main": "dist/index.js",
+  "engines" : {
+    "node" : "^10.13.0 || >=11.10.1"
+  },
   "scripts": {
     "build": "rollup -c",
     "tsc": "tsc",
     "test": "jest",
     "lint": "eslint 'libs/*.ts'",
     "doc": "typedoc --out docs libs/ && touch docs/.nojekyll",
-    "postversion": "git push origin $(git describe --abbrev=0 --tags)",
     "test:watch": "jest --watch",
-    "test:dev": "jest --watch --silent=false --verbose false --coverage"
+    "test:dev": "jest --watch --silent=false --verbose false --coverage",
+    "postversion": "npm run push:tag && npm run create:release && npm run create:changelog",
+    "push:tag": "git push origin $(git describe --abbrev=0 --tags)",
+    "create:release": "conventional-github-releaser -p angular",
+    "create:changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md && git commit -m 'update changelog'"
   },
   "keywords": [
   ],
@@ -40,11 +46,6 @@
     "testMatch": [
       "**/__tests__/*.+(ts|js)"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "lint-staged": {
     "*.ts": [
