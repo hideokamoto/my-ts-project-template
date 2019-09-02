@@ -12,3 +12,6 @@ libs/
 .idea/
 examples/
 .rpt2_cache/
+.huskyrc*
+commitlint.config.js
+.envrc*
