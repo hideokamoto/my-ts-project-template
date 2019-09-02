@@ -3,7 +3,7 @@ nodejs:
     - 8
     - 10
 script:
-  - commitlint-travis
+  - npx @commitlint/travis-clid
   - yarn run lint
   - yarn run test -- --ci
   - yarn run build
