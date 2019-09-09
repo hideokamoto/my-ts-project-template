@@ -2,6 +2,9 @@
 
 GitHub Template repository to create a npm package by using TypeScript.
 
+![image](./ogp_dark.png)  
+![image](./ogp_light.png)
+
 ## Prepare
 
 ```

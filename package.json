@@ -4,9 +4,10 @@
   "description": "",
   "main": "dist/index.js",
   "engines": {
-    "node": "^10.13.0 || >=11.10.1"
+    "node": ">=8.16.1 || ^10.13.0 || >=11.10.1"
   },
   "scripts": {
+    "prepare": "npm run build",
     "build": "rollup -c",
     "tsc": "tsc",
     "test": "jest",
